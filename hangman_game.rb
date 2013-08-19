@@ -80,17 +80,17 @@ end
 def hangman_picture
   case @number_of_wrong_guesses
     when 1
-      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t|  |/\n\t|  \n\t|_____"}"
+      puts "\n #{@array_picture[0]="\t|---\n\t|  O\n\t|  |/\n\t|  \n\t|_____"}"
     when 2
-      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t|  \n\t|_____"}"
+      puts "\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t|  \n\t|_____"}"
     when 3
-      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /\n\t|_____"}"
+      puts "\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /\n\t|_____"}"
     when 4
-      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /|\n\t|_____"}"
+      puts "\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /|\n\t|_____"}"
     when 5
-      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /|\\\n\t|_____"}"
+      puts "\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /|\\\n\t|_____"}"
     when 6
-      puts "new array\n #{@array_picture[0]="\t|---\n\t|  |\n\t|  O\n\t| \\|/\n\t| /|\\\n\t|_____"}"
+      puts "\n #{@array_picture[0]="\t|---\n\t|  |\n\t|  O\n\t| \\|/\n\t| /|\\\n\t|_____"}"
   end
 end
 
