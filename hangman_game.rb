@@ -16,7 +16,6 @@ class HangMan
     (0..@word_to_guess.length-1).each do |i|
       dash_array.push '_'
     end
-
     dash_array
   end
 
@@ -42,9 +41,9 @@ class HangMan
   end
 
   def try_again
-    puts "Try again (y/n)?"
-    try_again = gets.chomp
-    (try_again == "y" || try_again == "Y")? HangMan.new.play_game : 'Bye'
+    puts "Try again (y/n)? "
+    try_again = (gets.chomp).downcase
+    puts "#{(try_again == "y" || try_again == "Y")? HangMan.new.play_game : "Bye.."}"
   end
 
   def game_round
@@ -69,11 +68,15 @@ end
 
 class UserInput
   def get_input
-    begin
-      puts 'guess a letter'
-      input = gets.chomp
-    end until input =~ /^[a-z]$/
-    input
+    puts 'guess a letter'
+    input = (gets.chomp).downcase
+
+    if ( (input.length > 1 && input != ' ') || (input.empty? || input == ' ') || input =~ /^[0-9]$/)
+      puts "This is not a valid letter."
+      get_input
+    else
+      input
+    end
   end
 end
 
