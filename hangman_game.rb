@@ -7,6 +7,7 @@ class HangMan
     @user_input = user_input
     @number_of_wrong_guesses = 0
     @dash_array = init_dash_array
+    @array_picture = [  "\t|---\n\t|  O\n\t|  |\n\t|  \n\t|_____" ]
   end
 
   def init_dash_array
@@ -79,53 +80,17 @@ end
 def hangman_picture
   case @number_of_wrong_guesses
     when 1
-      puts "
-      \t|---
-      \t|  O
-      \t|  |/
-      \t|
-      \t|
-      \t|_____"
+      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t|  |/\n\t|  \n\t|_____"}"
     when 2
-      puts "
-      \t|---
-      \t|  O
-      \t| \\|/
-      \t|
-      \t|
-      \t|_____"
+      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t|  \n\t|_____"}"
     when 3
-      puts "
-      \t|---
-      \t|  O
-      \t| \\|/
-      \t| /
-      \t|
-      \t|_____"
+      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /\n\t|_____"}"
     when 4
-      puts "
-      \t|---
-      \t|  O
-      \t| \\|/
-      \t| /|
-      \t|
-      \t|_____"
+      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /|\n\t|_____"}"
     when 5
-      puts "
-      \t|---
-      \t|
-      \t|  O
-      \t| \\|/
-      \t| /|\\
-      \t|_____"
+      puts "new array\n #{@array_picture[0]="\t|---\n\t|  O\n\t| \\|/\n\t| /|\\\n\t|_____"}"
     when 6
-      puts "
-      \t|---
-      \t|  |
-      \t|  O
-      \t| \\|/
-      \t| /|\\
-      \t|_____"
+      puts "new array\n #{@array_picture[0]="\t|---\n\t|  |\n\t|  O\n\t| \\|/\n\t| /|\\\n\t|_____"}"
   end
 end
 
