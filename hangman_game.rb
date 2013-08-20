@@ -8,6 +8,7 @@ class HangMan
     @number_of_wrong_guesses = 0
     @dash_array = init_dash_array
     @array_picture = [  "\t|---\n\t|  O\n\t|  |\n\t|  \n\t|_____" ]
+    @already_guessed_letter = Array.new
   end
 
   def init_dash_array
@@ -43,39 +44,43 @@ class HangMan
   def try_again
     puts "Try again (y/n)? "
     try_again = (gets.chomp).downcase
-    puts "#{(try_again == "y" || try_again == "Y")? HangMan.new.play_game : "Bye.."}"
+    puts "#{(try_again == "y")? HangMan.new.play_game : "Bye.."}"
   end
 
   def game_round
     puts "#{@dash_array.join ' '}"
     guess = @user_input.get_input
 
-    if @word_to_guess.include?(guess)
+    if (@already_guessed_letter.include? guess)
+      puts "You already guessed this letter. Give another letter."
+
+    elsif @word_to_guess.include?(guess)
+      @already_guessed_letter << guess
       (0 .. @word_to_guess.length - 1).each do |i|
         position = @word_to_guess.index(guess, i)
         if position != nil
           @dash_array[position] = guess
         end
       end
+
     else
       @number_of_wrong_guesses += 1
-      puts "Wrong Guess count = #{@number_of_wrong_guesses}"
-      hangman_picture()
+      puts "wrongGuess count = #{@number_of_wrong_guesses}"
+      @already_guessed_letter << guess
+      hangman_picture
     end
   end
-
 end
 
 class UserInput
   def get_input
     puts 'guess a letter'
     input = (gets.chomp).downcase
-
-    if ( (input.length > 1 && input != ' ') || (input.empty? || input == ' ') || input =~ /^[0-9]$/)
+    if (input =~ /^[a-zA-Z]$/)
+      input
+    else
       puts "This is not a valid letter."
       get_input
-    else
-      input
     end
   end
 end
